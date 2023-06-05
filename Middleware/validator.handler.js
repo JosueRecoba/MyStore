@@ -1,5 +1,4 @@
 const boom = require('@hapi/boom');
-const e = require('express');
 
 function validatorHandler (schema, property){
   return (req, res, next) => {
