@@ -8,6 +8,17 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+
+const whitelist = ['http://localhost:3000', 'http://myapp.co'];
+const options = {
+  origin : (origin, callback) => {
+    if (whitelist.includes()){
+      callback(null, true);
+    } else{
+      callback(new Error('No permitido'));
+    }
+  }
+}
 app.use(cors());
 
 app.get('/', (req, res) => {
