@@ -10,7 +10,7 @@ const service = new ProductsService();
 
 router.get('/', async (req, res) => {
   const product = await service.find();
-  res.json(products);
+  res.json(product);
 })
 
 router.get('/filter', (req, res) => {
